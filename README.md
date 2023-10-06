@@ -1,3 +1,1 @@
-# RICK-AND-MORTY-APP
-
-# :)
+# RICK-AND-MORTY-APP :)
