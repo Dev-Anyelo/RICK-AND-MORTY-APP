@@ -1,4 +1,4 @@
-# RICK-AND-MORTY-APP 
+# Rick and Morty app
 
 https://rickandmortyapp-xi.vercel.app/
 
