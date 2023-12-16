@@ -2,5 +2,6 @@
 
 https://rickandmortyapp-xi.vercel.app/
 
-![image](https://github.com/Dev-Anyelo/RICK-AND-MORTY-APP/assets/137204513/6c620e22-c29b-420c-8cf8-da731efcf7ed)
+![image](https://github.com/Dev-Anyelo/RICK-AND-MORTY-APP/assets/137204513/e157b9dd-28ae-421b-9e5b-5269559829c4)
+
 
