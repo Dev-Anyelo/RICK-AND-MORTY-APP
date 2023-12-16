@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import Character from "./Character";
-import Typography from "@mui/material/Typography";
-import { Pagination } from "./Pagination";
 import Search from "./Search";
+import Character from "./Character";
+import { Pagination } from "./Pagination";
+import { useEffect, useState } from "react";
+import { Spinner } from "@material-tailwind/react";
 
 export default function CharacterList() {
   const [search, setSearch] = useState("");
@@ -13,7 +13,6 @@ export default function CharacterList() {
   });
 
   const [characters, setCharacters] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const URL = `https://rickandmortyapi.com/api/character/?page=${page}`;
   const SEARCH = `https://rickandmortyapi.com/api/character/?name=${search}`;
@@ -23,22 +22,30 @@ export default function CharacterList() {
   }, [page]);
 
   useEffect(() => {
-    const getAllCharacters = async () => {
-      const response = await fetch(URL);
-      const data = await response.json();
-      setCharacters(data.results);
-    };
-    setLoading(false);
-    getAllCharacters();
+   try {
+      const fetchCharacters = async () => {
+        const response = await fetch(URL);
+        const data = await response.json();
+        setCharacters(data.results);
+      };
+      fetchCharacters();
+    }
+    catch (error) {
+      console.log(error);
+    }
   }, [page]);
 
   useEffect(() => {
     const searchCharacters = async () => {
-      const response = await fetch(SEARCH);
-      const data = await response.json();
-      setCharacters(data.results);
+     try {
+        const response = await fetch(SEARCH);
+        const data = await response.json();
+        setCharacters(data.results);
+      }
+      catch (error) {
+        console.log(error);
+      }
     };
-    setLoading(false);
     searchCharacters();
   }, [search]);
 
@@ -60,6 +67,10 @@ export default function CharacterList() {
           >
             No results founds 👾
           </h1>
+        ) : characters.length === 0 ? (
+          <div className="w-full h-full py-5 flex justify-center items-center text-xl">
+            <Spinner color="gray" size="lg" width="35" height="35" />
+          </div>
         ) : (
           characters.map((character) => (
             <Character key={character.id} character={character} />
