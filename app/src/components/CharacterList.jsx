@@ -44,28 +44,28 @@ export default function CharacterList() {
 
   return (
     <div className="xl:px-14">
-      <h1 className="text-center text-2xl md:text-5xl font-thin text-gray-900 font-sans">
+      <h1 className="text-xl font-semibold md:text-3xl text-gray-900 text-center">
         RICK AND MORTY APP
       </h1>
-        <header className="md:mt-16 mt-8 mb-6 md:mb-8 flex gap-3 sm:gap-5 justify-center items-center lg:flex-row flex-col w-full p-0">
+      <header className="md:mt-16 mt-8 mb-6 md:mb-8 flex gap-3 sm:gap-5 justify-center items-center lg:flex-row flex-col w-full p-0">
         <Search search={search} setSearch={setSearch} />
         <Pagination page={page} setPage={setPage} />
       </header>
       <div className="lg:gap-5 flex-wrap flex gap-3 md:justify-between justify-center items-center w-full lg:mt-10">
         {!characters ? (
-            <h1 variant="h2" color={"GrayText"} className="w-full text-center py-20 text-lg sm:text-xl md:text-4xl">
-              No results founds 👾
-            </h1>  
+          <h1
+            variant="h2"
+            color={"GrayText"}
+            className="w-full text-center py-20 text-lg sm:text-xl md:text-4xl"
+          >
+            No results founds 👾
+          </h1>
         ) : (
           characters.map((character) => (
             <Character key={character.id} character={character} />
           ))
         )}
       </div>
-
-      <header className="p-20">
-        <Pagination page={page} setPage={setPage} />
-      </header>
     </div>
   );
 }

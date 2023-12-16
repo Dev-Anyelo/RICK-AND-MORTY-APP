@@ -19,7 +19,7 @@ export default function Search({ search, setSearch }) {
 
   return (
     <>
-      <div className="w-full px-14 sm:px-7">
+      <div className="w-full px-2 md:px-14">
         <div className="flex sm:gap-3 w-full">
           <form className="w-full lg:max-w-md" onSubmit={handleSubmit}>
             <label
